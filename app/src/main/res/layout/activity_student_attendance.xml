@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.StudentAttendance">
+
+    <Spinner
+        android:id="@+id/spnAttendanceMonth"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:entries="@array/spinnerMonthName"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:paddingLeft="4dp"
+        android:layout_marginBottom="2dp"
+        style="@android:style/Widget.Holo.Light.Spinner"
+        />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Attendance Detail for the month of"
+    android:id="@+id/txtCurrentMonth"
+    android:layout_below="@id/spnAttendanceMonth"
+    android:layout_centerHorizontal="true"
+    android:gravity="center_horizontal"
+    android:textSize="20sp"
+    android:textColor="#000"
+    android:background="#c7c3c3"
+    android:padding="10dp"
+    />
+    <TextView
+        android:id="@+id/txtErrAttendance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No data found"
+        android:layout_centerInParent="true"
+        android:textSize="20sp"
+        android:textColor="#ff0000"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recStsAttendance"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_below="@id/txtCurrentMonth"
+        android:layout_marginTop="15dp">
+    </android.support.v7.widget.RecyclerView>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/prgStsAttendance"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

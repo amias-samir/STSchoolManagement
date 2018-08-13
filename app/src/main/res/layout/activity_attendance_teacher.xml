@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context="com.example.adsl4.stschoolmanagement.activities.AttendanceTeacher">
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_centerInParent="true"
+        android:id="@+id/prgTeacherAssignment"
+        style="@style/Widget.AppCompat.ProgressBar"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btnSubmit">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Batch"
+                android:textSize="25sp"
+                android:id="@+id/txtBatch"/>
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:id="@+id/spinnerBatch"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grade"
+                android:textSize="25sp"/>
+            <Spinner
+                android:id="@+id/spinnerGrade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Section"
+                android:textSize="25sp"
+                android:layout_marginTop="20dp"/>
+            <Spinner
+                android:id="@+id/spinnerSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Students"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_no_data_found"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Student's Record not found!!"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textColor="@android:color/holo_red_light"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"/>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerStudentList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/submit_attendance"
+        android:background="@drawable/round_button_green"
+        android:textColor="#fff"
+        android:id="@+id/btnSubmit"
+        />
+</RelativeLayout>

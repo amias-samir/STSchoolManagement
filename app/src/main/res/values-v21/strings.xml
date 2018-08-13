@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="loginapi_base_url">http://www.mobile.sheshayapathshala.com.np/api/StudentDetails/</string>
+</resources>

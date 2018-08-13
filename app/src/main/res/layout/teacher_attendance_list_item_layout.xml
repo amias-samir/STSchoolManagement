@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_10"
+    android:layout_marginBottom="@dimen/dp_4">
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardBackgroundColor="#fff"
+        card_view:cardCornerRadius="7dp"
+        card_view:cardElevation="3dp"
+        card_view:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtStudentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:text="Student Name"
+              android:padding="@dimen/dp_10"
+                android:layout_centerVertical="true"/>
+
+            <CheckBox
+                android:id="@+id/chkAttendanceAbsent"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:padding="@dimen/dp_10"
+                android:text="Absent"
+                android:layout_height="wrap_content"
+                />
+
+            <CheckBox
+                android:id="@+id/chkAttendancePresent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Present"
+                android:checked="true"
+                android:padding="10dp"
+                android:layout_toLeftOf="@id/chkAttendanceAbsent"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

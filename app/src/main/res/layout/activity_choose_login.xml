@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/blur"
+    tools:context="com.example.adsl4.stschoolmanagement.activities.ChooseLogin">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/sheshaya"
+        android:id="@+id/imgLogo"
+        android:layout_gravity="center_horizontal"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="30sp"
+        android:textColor="#fff"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/login_with_qr_code"
+        android:background="@drawable/round_button_green"
+        android:textColor="#fff"
+        android:id="@+id/btnLoginWithQrCode"
+        />
+    <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="35dp"
+    android:layout_marginStart="35dp"
+    android:layout_marginRight="35dp"
+    android:layout_marginEnd="35dp"
+    android:layout_marginTop="20dp"
+    android:text="@string/login_with_id"
+    android:background="@drawable/round_button_green"
+    android:textColor="#fff"
+    android:id="@+id/btnLoginWithId"
+    />
+
+</LinearLayout>

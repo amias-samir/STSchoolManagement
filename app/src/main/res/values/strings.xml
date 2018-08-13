@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">Sheshaya Pathshala</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_login">Login</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="login_id_hint">Your Unique ID</string>
+    <string name="btn_login">Login</string>
+    <string name="no_login_id">If you dont have Login id, Please contact School admin.</string>
+    <string-array name="spinnerMonthName">
+        <item>Select Month</item>
+        <item>Baisakh</item>
+        <item>Jestha</item>
+        <item>Ashad</item>
+        <item>Shrawan</item>
+        <item>Bhadra</item>
+        <item>Ashwin</item>
+        <item>Kartik</item>
+        <item>Marga</item>
+        <item>Poush</item>
+        <item>Magh</item>
+        <item>Falgun</item>
+        <item>Chaitra</item>
+
+    </string-array>
+    <string-array name="spinnerItems">
+        <item>Tell me who you are</item>
+        <item>Teacher</item>
+        <item>Parent</item>
+    </string-array>
+    <string-array name="spinnerGrade">
+        <item>Nursery</item>
+        <item>LKG</item>
+        <item>UKG</item>
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
+        <item>V</item>
+        <item>VI</item>
+        <item>VII</item>
+        <item>VIII</item>
+        <item>IX</item>
+        <item>X</item>
+    </string-array>
+    <string-array name="spinnerSubject">
+        <item>English</item>
+        <item>Nepali</item>
+        <item>Math</item>
+        <item>Drawing</item>
+        <item>Oral</item>
+    </string-array>
+    <string-array name="spinnerSection">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+    </string-array>
+    <string name="title_activity_dashboard_teacher">Dashboard: Teacher</string>
+    <string name="name_school">ABC SCHOOL</string>
+    <string name="submit_assignment">Upload Assignment</string>
+    <string name="submit_attendance">Submit Attendance</string>
+    <string name="loginapi_base_url">http://www.mobile.sheshayapathshala.com.np/api/StudentDetails/</string>
+    <string name="msg_wrong_pin">Please enter your Student ID !!</string>
+    <string name="notice_base_url">http://mobile.sheshayapathshala.com.np/api/StudentDetails/AllNotices/</string>
+    <string name="login_with_id">LOGIN WITH ID</string>
+    <string name="login_with_qr_code">LOGIN WITH QR CODE</string>
+    <string name="assignment_base_url">http://mobile.sheshayapathshala.com.np/api/StudentDetails/AllHomeWorks/</string>
+    <string name="readymade_uid">492b18ac-8cb3-4f68-907a-d459f8fad6f1</string>
+    <string name="sts_msg_url">http://mobile.sheshayapathshala.com.np/api/StudentDetails/AllMessages/</string>
+    <string name="get_month_url">http://mobile.sheshayapathshala.com.np/api/Attendances/</string>
+    <string name="attain_detail_url">http://mobile.sheshayapathshala.com.np/api/Attendances/GetMyAttendance/</string>
+    <string name="get_Batch">http://mobile.sheshayapathshala.com.np/api/Attendances/GetBatch/</string>
+    <string name="get_class_url">http://mobile.sheshayapathshala.com.np/api/Attendances/GetClass/</string>
+    <string name="get_section_url">http://mobile.sheshayapathshala.com.np/api/Attendances/GetSection/</string>
+    <string name="get_subjects_url">http://mobile.sheshayapathshala.com.np/api/Attendances/GetClassSubject/</string>
+
+</resources>
