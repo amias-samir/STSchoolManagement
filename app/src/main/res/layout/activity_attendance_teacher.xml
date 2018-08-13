@@ -7,13 +7,9 @@
     android:padding="10dp"
     tools:context="com.example.adsl4.stschoolmanagement.activities.AttendanceTeacher">
 
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_centerInParent="true"
-        android:id="@+id/prgTeacherAssignment"
-        style="@style/Widget.AppCompat.ProgressBar"/>
+
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -64,6 +60,14 @@
                 android:textSize="25sp"
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_marginTop="10dp"/>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_centerInParent="true"
+                android:id="@+id/prgTeacherAssignment"
+                style="@style/Widget.AppCompat.ProgressBar"/>
 
             <TextView
                 android:id="@+id/tv_no_data_found"
