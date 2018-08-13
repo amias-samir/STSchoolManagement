@@ -1,9 +1,7 @@
 package com.example.adsl4.stschoolmanagement.activities;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -17,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,19 +24,34 @@ import com.example.adsl4.stschoolmanagement.login.TeacherDetailsResponse;
 import com.example.adsl4.stschoolmanagement.utils.JsonAndGsonOperation;
 import com.example.adsl4.stschoolmanagement.utils.SharedPreferenceUtils;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class DashboardTeacher extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    String LoginStatus,Student,Organization;
-    TextView txtTeacherName,txtTeacherPost;
-    ImageView   imageView;
+    String LoginStatus, Student, Organization;
+    TextView txtTeacherName, txtTeacherPost;
+    ImageView imageView;
+
 
     SharedPreferenceUtils sharedPreferenceUtils;
     TeacherDetailsResponse teacherDetailsResponse;
+    @BindView(R.id.btnAttendance)
+    Button btnAttendance;
+    @BindView(R.id.btnAssignedAssignment)
+    Button btnAssignedAssignment;
+    @BindView(R.id.btnNotices)
+    Button btnNotices;
+    @BindView(R.id.btnAssignment)
+    Button btnAssignment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_teacher);
+        ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -71,9 +85,9 @@ public class DashboardTeacher extends AppCompatActivity
 
         View header = navigationView.getHeaderView(0);
 
-        imageView=(de.hdodenhof.circleimageview.CircleImageView) header.findViewById(R.id.profile_image_teacher);
+        imageView = (CircleImageView) header.findViewById(R.id.profile_image_teacher);
         txtTeacherName = header.findViewById(R.id.txtTeacherName);
-        txtTeacherPost=header.findViewById(R.id.txtTeacherPost);
+        txtTeacherPost = header.findViewById(R.id.txtTeacherPost);
 
 //        SharedPreferences StsName = this.getSharedPreferences(Organization, Context.MODE_PRIVATE);
 //        String stName = StsName.getString("teachName", null);
@@ -150,15 +164,15 @@ public class DashboardTeacher extends AppCompatActivity
                 finish();
                 break;
             case R.id.nav_assignment:
-                Intent assignment= new Intent(this,AssignmentTeacher.class);
+                Intent assignment = new Intent(this, AssignmentTeacher.class);
                 startActivity(assignment);
                 break;
             case R.id.nav_attendance_add:
-                Intent attendance= new Intent(this, AttendanceTeacher.class);
+                Intent attendance = new Intent(this, AttendanceTeacher.class);
                 startActivity(attendance);
                 break;
             case R.id.nav_notice:
-                Intent notice= new Intent(this,StudentNotices.class);
+                Intent notice = new Intent(this, StudentNotices.class);
                 startActivity(notice);
                 break;
 
@@ -167,5 +181,22 @@ public class DashboardTeacher extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @OnClick({R.id.btnAttendance, R.id.btnAssignedAssignment, R.id.btnNotices, R.id.btnAssignment})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.btnAttendance:
+                startActivity(new Intent(DashboardTeacher.this, AttendanceTeacher.class));
+                break;
+            case R.id.btnAssignedAssignment:
+                break;
+            case R.id.btnNotices:
+                startActivity(new Intent(DashboardTeacher.this, StudentNotices.class));
+                break;
+            case R.id.btnAssignment:
+                startActivity(new Intent(DashboardTeacher.this, AssignmentTeacher.class));
+                break;
+        }
     }
 }
