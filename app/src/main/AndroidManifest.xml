@@ -87,7 +87,8 @@
         <activity
             android:name=".activities.StudentAttendance"
             android:parentActivityName=".activities.MainActivity" />
-        <activity android:name=".assignedteacherassignment.AssignedAssgnmntActivity"></activity>
+        <activity android:name=".assignedteacherassignment.AssignedAssgnmntActivity" />
+        <activity android:name=".assignedteacherassignment.AsgndAsgmntDtlsActivity"></activity>
     </application>
 
 </manifest>

@@ -62,7 +62,8 @@ public class AssignedAssgnmntActivity extends AppCompatActivity {
 
     }
     private void setupListRecycler() {
-        AssignedAssignmentListAdapter assignedAssignmentListAdapter = new AssignedAssignmentListAdapter(R.layout.sts_assignment_item, null);
+        AssignedAssignmentListAdapter assignedAssignmentListAdapter = new AssignedAssignmentListAdapter(AssignedAssgnmntActivity.this,
+                R.layout.sts_assignment_item, null);
         recStsAssignment.setLayoutManager(new LinearLayoutManager(this));
         recStsAssignment.setAdapter(assignedAssignmentListAdapter);
     }

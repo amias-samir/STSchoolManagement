@@ -1,7 +1,10 @@
 package com.example.adsl4.stschoolmanagement.assignedteacherassignment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.text.Html;
+import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -11,9 +14,12 @@ import java.util.List;
 
 public class AssignedAssignmentListAdapter extends BaseQuickAdapter<AssignedAssignmentDetail, BaseViewHolder> {
 
+    Context context;
 
-    public AssignedAssignmentListAdapter(int layoutResId, @Nullable List<AssignedAssignmentDetail> data) {
+    public AssignedAssignmentListAdapter(Context context ,int layoutResId, @Nullable List<AssignedAssignmentDetail> data) {
         super(layoutResId, data);
+        this.context = context;
+
     }
 
 
@@ -33,14 +39,14 @@ public class AssignedAssignmentListAdapter extends BaseQuickAdapter<AssignedAssi
             e.printStackTrace();
         }
 
-
-//        String realdate= listItemStudentAssignment.getAssignmentDate();
-//        String[] splitDate=realdate.split("T");
-////        assignmentDate="Assignment Date: "+splitDate[0];
-//        holder.txtAssignmentNo.setText("QNo. "+String.valueOf(assignmentId));
-//        holder.txtAssignmentBody.setText(Html.fromHtml(assignmentName));
-//        holder.txtAssignmentDate.setText(assignmentDate);
-//        asigNo="QNo. "+String.valueOf(assignmentId);
+        helper.getView(R.id.main_card).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(helper.getView(R.id.main_card).getContext(), AsgndAsgmntDtlsActivity.class);
+                intent.putExtra("item ", item);
+                helper.getView(R.id.main_card).getContext().startActivity(intent);
+            }
+        });
 
     }
 
