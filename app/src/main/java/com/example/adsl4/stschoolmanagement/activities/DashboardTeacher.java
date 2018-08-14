@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.adsl4.stschoolmanagement.R;
+import com.example.adsl4.stschoolmanagement.assignedteacherassignment.AssignedAssgnmntActivity;
 import com.example.adsl4.stschoolmanagement.login.TeacherDetailsResponse;
 import com.example.adsl4.stschoolmanagement.utils.JsonAndGsonOperation;
 import com.example.adsl4.stschoolmanagement.utils.SharedPreferenceUtils;
@@ -46,6 +47,8 @@ public class DashboardTeacher extends AppCompatActivity
     Button btnNotices;
     @BindView(R.id.btnAssignment)
     Button btnAssignment;
+    @BindView(R.id.txtSchoolName)
+    TextView txtSchoolName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,9 +73,6 @@ public class DashboardTeacher extends AppCompatActivity
             }
         });
 
-//        SharedPreferences.Editor loginStatus = getSharedPreferences(Student, MODE_PRIVATE).edit();
-//        loginStatus.putInt("loginStatus", 1);
-//        loginStatus.apply();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -89,13 +89,12 @@ public class DashboardTeacher extends AppCompatActivity
         txtTeacherName = header.findViewById(R.id.txtTeacherName);
         txtTeacherPost = header.findViewById(R.id.txtTeacherPost);
 
-//        SharedPreferences StsName = this.getSharedPreferences(Organization, Context.MODE_PRIVATE);
-//        String stName = StsName.getString("teachName", null);
         txtTeacherName.setText(teacherDetailsResponse.getFullName());
 
-//        SharedPreferences techPost = this.getSharedPreferences(Organization, Context.MODE_PRIVATE);
-//        String techerPost = techPost.getString("teachPost", null);
+
         txtTeacherPost.setText(teacherDetailsResponse.getEmployeePost());
+        txtSchoolName.setText(teacherDetailsResponse.getOrganization());
+
 
 //        SharedPreferences stsImage = this.getSharedPreferences(Student, Context.MODE_PRIVATE);
 //        String stImage = stsImage.getString("stsImage", null);
@@ -190,6 +189,7 @@ public class DashboardTeacher extends AppCompatActivity
                 startActivity(new Intent(DashboardTeacher.this, AttendanceTeacher.class));
                 break;
             case R.id.btnAssignedAssignment:
+                startActivity(new Intent(DashboardTeacher.this, AssignedAssgnmntActivity.class));
                 break;
             case R.id.btnNotices:
                 startActivity(new Intent(DashboardTeacher.this, StudentNotices.class));

@@ -1,10 +1,8 @@
 package com.example.adsl4.stschoolmanagement.activities;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -35,13 +33,17 @@ import com.example.adsl4.stschoolmanagement.utils.JsonAndGsonOperation;
 import com.example.adsl4.stschoolmanagement.utils.SharedPreferenceUtils;
 import com.squareup.picasso.Picasso;
 
-public class    MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener , View.OnClickListener{
-    String Student,orgPhone;
-    Button btnMessage,btnNotices,btnAssignment,btnAttendance;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+    String Student, orgPhone;
+    Button btnMessage, btnNotices, btnAssignment, btnAttendance;
     ScrollView relMain;
     EditText edtEmail3;
-    TextView txtStsName,txtStsAddress,txtSchoolName;
-    String StsName1,Organization;
+    TextView txtStsName, txtStsAddress, txtSchoolName;
+    String StsName1, Organization;
     ImageView imageView;
     SharedPreferenceUtils sharedPreferenceUtils;
     StudentDetail studentDetail;
@@ -51,6 +53,7 @@ public class    MainActivity extends AppCompatActivity implements NavigationView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
@@ -68,47 +71,46 @@ public class    MainActivity extends AppCompatActivity implements NavigationView
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView =  findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        btnAttendance=findViewById(R.id.btnAttendance);
+        btnAttendance = findViewById(R.id.btnAttendance);
         btnAttendance.setOnClickListener(this);
-        btnMessage=findViewById(R.id.btnMessage);
+        btnMessage = findViewById(R.id.btnMessage);
         btnMessage.setOnClickListener(this);
-        btnNotices=findViewById(R.id.btnNotices);
+        btnNotices = findViewById(R.id.btnNotices);
         btnNotices.setOnClickListener(this);
-        btnAssignment=findViewById(R.id.btnAssignment);
+        btnAssignment = findViewById(R.id.btnAssignment);
         btnAssignment.setOnClickListener(this);
-        txtSchoolName=findViewById(R.id.txtSchoolName);
+        txtSchoolName = findViewById(R.id.txtSchoolName);
 
 
-        edtEmail3=findViewById(R.id.edtEmail3);
+        edtEmail3 = findViewById(R.id.edtEmail3);
 
         View header = navigationView.getHeaderView(0);
-        imageView=(de.hdodenhof.circleimageview.CircleImageView) header.findViewById(R.id.profile_image);
+        imageView = (CircleImageView) header.findViewById(R.id.profile_image);
         txtStsName = header.findViewById(R.id.txtStsName1);
-        txtStsAddress=header.findViewById(R.id.txtStsAddress);
+        txtStsAddress = header.findViewById(R.id.txtStsAddress);
 
 
-        int userType = sharedPreferenceUtils.getIntValue(SharedPreferenceUtils.KEY_USER_ID , -1);
+        int userType = sharedPreferenceUtils.getIntValue(SharedPreferenceUtils.KEY_USER_ID, -1);
 
-        if(userType == 0){
-        txtStsName.setText(studentDetail.getFullName());
+        if (userType == 0) {
+            txtStsName.setText(studentDetail.getFullName());
             txtStsAddress.setText(studentDetail.getEmail());
             txtSchoolName.setText(studentDetail.getOrganization());
-            Picasso.with(this).load("http://sheshayapathshala.com.np/images/"+studentDetail.getStudentImage()).into(imageView);
+            Picasso.with(this).load("http://sheshayapathshala.com.np/images/" + studentDetail.getStudentImage()).into(imageView);
 
-        }else if(userType == 1){
+        } else if (userType == 1) {
             txtStsName.setText(teacherDetailsResponse.getFullName());
             txtStsAddress.setText(teacherDetailsResponse.getEmail());
             txtSchoolName.setText(teacherDetailsResponse.getOrganization());
-            Picasso.with(this).load("http://sheshayapathshala.com.np/images/"+teacherDetailsResponse.getEmployeeImage()).into(imageView);
+            Picasso.with(this).load("http://sheshayapathshala.com.np/images/" + teacherDetailsResponse.getEmployeeImage()).into(imageView);
 
         }
 
 
-
-        FloatingActionButton fab =findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,7 +127,7 @@ public class    MainActivity extends AppCompatActivity implements NavigationView
                             public void onClick(DialogInterface dialog, int which) {
                                 Intent intent = new Intent(Intent.ACTION_CALL);
                                 intent.setData(Uri.parse("tel:" + orgPhone));
-                                Toast.makeText(MainActivity.this, "Calling: "+orgPhone, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Calling: " + orgPhone, Toast.LENGTH_SHORT).show();
                                 if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                                     // TODO: Consider calling
                                     //    ActivityCompat#requestPermissions
@@ -152,7 +154,7 @@ public class    MainActivity extends AppCompatActivity implements NavigationView
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-      //  getMenuInflater().inflate(R.menu.menu_main, menu);
+        //  getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -221,19 +223,19 @@ public class    MainActivity extends AppCompatActivity implements NavigationView
                         .show();
                 break;
             case R.id.nav_notice:
-                Intent noticeIntent=new Intent(MainActivity.this,StudentNotices.class);
+                Intent noticeIntent = new Intent(MainActivity.this, StudentNotices.class);
                 startActivity(noticeIntent);
                 break;
             case R.id.nav_assignment:
-                Intent assignmentIntent=new Intent(MainActivity.this,AssignmentStudent.class);
+                Intent assignmentIntent = new Intent(MainActivity.this, AssignmentStudent.class);
                 startActivity(assignmentIntent);
                 break;
             case R.id.nav_attendance:
-                Intent attendanceIntent=new Intent(MainActivity.this,StudentAttendance.class);
+                Intent attendanceIntent = new Intent(MainActivity.this, StudentAttendance.class);
                 startActivity(attendanceIntent);
                 break;
             case R.id.nav_myMessage:
-                Intent messageIntent=new Intent(MainActivity.this,StudentMessage.class);
+                Intent messageIntent = new Intent(MainActivity.this, StudentMessage.class);
                 startActivity(messageIntent);
                 break;
 
@@ -246,22 +248,22 @@ public class    MainActivity extends AppCompatActivity implements NavigationView
 
     @Override
     public void onClick(View v) {
-        int id=v.getId();
-        switch (id){
+        int id = v.getId();
+        switch (id) {
             case R.id.btnNotices:
-                Intent noticeIntent=new Intent(MainActivity.this,StudentNotices.class);
+                Intent noticeIntent = new Intent(MainActivity.this, StudentNotices.class);
                 startActivity(noticeIntent);
                 break;
             case R.id.btnMessage:
-                Intent messageIntent=new Intent(MainActivity.this,StudentMessage.class);
+                Intent messageIntent = new Intent(MainActivity.this, StudentMessage.class);
                 startActivity(messageIntent);
                 break;
             case R.id.btnAssignment:
-                Intent assignmentIntent=new Intent(MainActivity.this,AssignmentStudent.class);
+                Intent assignmentIntent = new Intent(MainActivity.this, AssignmentStudent.class);
                 startActivity(assignmentIntent);
                 break;
             case R.id.btnAttendance:
-                Intent attendanceIntent=new Intent(MainActivity.this,StudentAttendance.class);
+                Intent attendanceIntent = new Intent(MainActivity.this, StudentAttendance.class);
                 startActivity(attendanceIntent);
                 break;
         }

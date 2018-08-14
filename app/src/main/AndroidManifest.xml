@@ -46,10 +46,9 @@
         <activity
             android:name=".activities.DashboardTeacher"
             android:label="@string/title_activity_dashboard_teacher"
-            android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.AssignmentTeacher"
             android:label="Upload Assignment"
@@ -63,8 +62,8 @@
             android:parentActivityName=".activities.StudentNotices" />
         <activity
             android:name=".activities.StudentNotices"
-            android:label="School Notices"
             android:exported="true"
+            android:label="School Notices"
             android:parentActivityName=".activities.MainActivity" />
         <activity
             android:name=".login.QrScanner"
@@ -88,6 +87,7 @@
         <activity
             android:name=".activities.StudentAttendance"
             android:parentActivityName=".activities.MainActivity" />
+        <activity android:name=".assignedteacherassignment.AssignedAssgnmntActivity"></activity>
     </application>
 
 </manifest>

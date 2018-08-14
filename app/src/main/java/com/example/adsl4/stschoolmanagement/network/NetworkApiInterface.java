@@ -2,8 +2,10 @@ package com.example.adsl4.stschoolmanagement.network;
 
 
 
+import com.example.adsl4.stschoolmanagement.assignedteacherassignment.AssignedAssignmentDetail;
 import com.example.adsl4.stschoolmanagement.login.StudentDetail;
 import com.example.adsl4.stschoolmanagement.login.TeacherDetailsResponse;
+import com.example.adsl4.stschoolmanagement.modals.GetSubjectsAsignmentModal;
 import com.example.adsl4.stschoolmanagement.modals.TeacherAssignmentModal;
 import com.example.adsl4.stschoolmanagement.notices.StudentNoticeModal;
 import com.example.adsl4.stschoolmanagement.teacherattendance.TeacherAttendanceResponse;
@@ -45,6 +47,13 @@ public interface NetworkApiInterface {
     @Headers("Content-Type: application/json; charset=utf-8")
     @POST("api/Attendances")
     Observable<TeacherAttendanceResponse> uploadAttendance(@Body TeacherAttendanceResponse teacherAttendanceResponse);
+
+
+    @Headers("Content-Type: application/json; charset=utf-8")
+    @GET("api/Assignments/GetAllAssignment/{OrganizationId}/{BranchId}/{EmployeeDetailId}")
+    Observable<List<AssignedAssignmentDetail>> getAssignedAssignmentDetails(@Path("OrganizationId") int OrgId,
+                                                          @Path("BranchId") int BrnId,
+                                                          @Path("EmployeeDetailId") int employeId);
 
 }
 
